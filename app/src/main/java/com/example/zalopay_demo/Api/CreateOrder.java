@@ -1,7 +1,8 @@
-package com.zlpdemo.merchantDemo.Api;
+package com.example.zalopay_demo.Api;
 
-import com.zlpdemo.merchantDemo.Constant.AppInfo;
-import com.zlpdemo.merchantDemo.Helper.Helpers;
+
+import com.example.zalopay_demo.Constant.AppInfo;
+import com.example.zalopay_demo.Helper.Helpers;
 
 import org.json.JSONObject;
 
@@ -9,6 +10,7 @@ import java.util.Date;
 
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
+
 
 public class CreateOrder {
     private class CreateOrderData {
