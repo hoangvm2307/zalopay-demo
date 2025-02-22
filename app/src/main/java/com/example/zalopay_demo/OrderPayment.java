@@ -63,21 +63,22 @@ public class OrderPayment extends AppCompatActivity {
                         @Override
                         public void onPaymentSucceeded(String s, String s1, String s2) {
                             Intent intent1 = new Intent(OrderPayment.this, PaymentNotification.class);
-                            intent1.putExtra("result", "Thanh toan thanh cong");
+                            intent1.putExtra("result", "Thanh toán thành công");
+                            intent1.putExtra("total","Bạn đã thanh toán " + total + "VND");
                             startActivity(intent1);
                         }
 
                         @Override
                         public void onPaymentCanceled(String s, String s1) {
                             Intent intent2 = new Intent(OrderPayment.this, PaymentNotification.class);
-                            intent2.putExtra("result", "Huy thanh toan");
+                            intent2.putExtra("result", "Thanh toán đã được hủy");
                             startActivity(intent2);
                         }
 
                         @Override
                         public void onPaymentError(ZaloPayError zaloPayError, String s, String s1) {
                             Intent intent3 = new Intent(OrderPayment.this, PaymentNotification.class);
-                            intent3.putExtra("result", "Loi Thanh toan");
+                            intent3.putExtra("result", "Lỗi thanh toán");
                             startActivity(intent3);
                         }
                     });
