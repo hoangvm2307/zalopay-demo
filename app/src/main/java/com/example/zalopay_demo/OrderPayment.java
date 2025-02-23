@@ -1,4 +1,6 @@
 package com.example.zalopay_demo;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,7 +50,10 @@ public class OrderPayment extends AppCompatActivity {
         Intent intent = getIntent();
         tvSoluong.setText(intent.getStringExtra("soluong"));
         Double total = intent.getDoubleExtra("total", 0);
+
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         String totalString = String.format("%.0f", total);
+        String totalFormatted = formatter.format(total);
         tvTongTien.setText(Double.toString(total));
 
         btnThanhToan.setOnClickListener(v -> {
@@ -64,7 +69,7 @@ public class OrderPayment extends AppCompatActivity {
                         public void onPaymentSucceeded(String s, String s1, String s2) {
                             Intent intent1 = new Intent(OrderPayment.this, PaymentNotification.class);
                             intent1.putExtra("result", "Thanh toán thành công");
-                            intent1.putExtra("total","Bạn đã thanh toán " + total + "VND");
+                            intent1.putExtra("total","Bạn đã thanh toán " + totalFormatted);
                             startActivity(intent1);
                         }
 
