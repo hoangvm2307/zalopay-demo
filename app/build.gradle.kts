@@ -46,6 +46,8 @@ dependencies {
         "include" to listOf("*.aar", "*.jar"),
         "exclude" to listOf("")
     )))
+    implementation(files("C:\\Users\\Dell\\Downloads\\zpdk-release-v3.1.aar"))
+    implementation(files("C:\\Users\\Dell\\Downloads\\DemoZPDK_Android.zip"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
