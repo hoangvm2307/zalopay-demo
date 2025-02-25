@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Zalopaydemo"
         tools:targetApi="31">
         <activity
+            android:name=".TransactionReportActivity"
+            android:exported="false" />
+        <activity
             android:name=".PaymentNotification"
             android:exported="true" />
         <activity
