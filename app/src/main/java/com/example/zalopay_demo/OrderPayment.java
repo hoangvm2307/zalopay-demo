@@ -54,7 +54,7 @@ public class OrderPayment extends AppCompatActivity {
         NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         String totalString = String.format("%.0f", total);
         String totalFormatted = formatter.format(total);
-        tvTongTien.setText(Double.toString(total));
+        tvTongTien.setText(totalFormatted);
 
         btnThanhToan.setOnClickListener(v -> {
             CreateOrder orderApi = new CreateOrder();
@@ -69,14 +69,14 @@ public class OrderPayment extends AppCompatActivity {
                         public void onPaymentSucceeded(String s, String s1, String s2) {
                             Intent intent1 = new Intent(OrderPayment.this, PaymentNotification.class);
                             intent1.putExtra("result", "Thanh toán thành công");
-                            intent1.putExtra("total","Bạn đã thanh toán " + totalFormatted);
+                            intent1.putExtra("total", "Bạn đã thanh toán " + totalFormatted);
                             startActivity(intent1);
                         }
 
                         @Override
                         public void onPaymentCanceled(String s, String s1) {
                             Intent intent2 = new Intent(OrderPayment.this, PaymentNotification.class);
-                            intent2.putExtra("result", "Thanh toán đã được hủy");
+                            intent2.putExtra("result",  "Thanh toán đã được hủy");
                             startActivity(intent2);
                         }
 
